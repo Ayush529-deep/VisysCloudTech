@@ -15,9 +15,29 @@ app.use(cors());
 app.use(express.json());
 
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB Connected"))
-  .catch((err) => console.log("❌ DB Error:", err));
+// mongoose.connect(process.env.MONGO_URI)
+//   .then(() => console.log("✅ MongoDB Connected"))
+//   .catch((err) => console.log("❌ DB Error:", err));
+
+
+
+let isConnected = false;
+
+const connectDB = async () => {
+  if (isConnected) return;
+
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    isConnected = true;
+    console.log("✅ MongoDB Connected");
+  } catch (err) {
+    console.log("❌ DB Error:", err);
+  }
+};
+
+connectDB();
+
+
 
 app.get("/", (req, res) => {
   res.send("API Running...");
