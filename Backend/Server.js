@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 // import contactRoutes from "./routes/contactRoutes"
-import contactRoutes from "./routes/contactRoutes.js";
+// import contactRoutes from "./routes/contactRoutes.js";
+import contactRoutes from "../routes/contactRoutes.js";
 
 
 dotenv.config();
