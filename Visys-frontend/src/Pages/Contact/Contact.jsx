@@ -23,7 +23,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:5000/api/contact", formData);
+      await axios.post("http://visys-cloud-tech-1itl-backend.vercel.app/api/contact", formData);
       alert("Message Sent Successfully ✅");
 
       setFormData({
